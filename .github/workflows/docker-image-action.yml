@@ -1,0 +1,30 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build_image_push:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag cloudnativeacr01.azurecr.io/Rajeshaction:latest
+      
+    - name: Azure Container Registry Login
+      uses: Azure/docker-login@v1
+      with:
+        # Container registry username
+        username: cloudnativeacr01 # ${{ secrets.ACR_NAME }}
+        # Container registry password
+        password: mqQLbr9e0wwHnaEHM/AVaD2uMqvgdmXd
+        # Container registry server url
+        login-server: cloudnativeacr01.azurecr.io
+    - name: Push the Docker image
+      run: docker push cloudnativeacr01.azurecr.io/Rajeshaction:latest
