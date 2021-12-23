@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cloudnativeaction
+  name: Rajeshaction
 spec:
   selector:
     matchLabels:
-      app: cloudnativeaction-pod
+      app: Rajeshaction-pod
   template:
     metadata:
       labels:
-        app: cloudnativeaction-pod
+        app: Rajeshaction-pod
     spec:
       containers:
       - name: myapp
-        image: cloudnativeacr01.azurecr.io/cloudnativeaction:latest
+        image: cloudnativeacr01.azurecr.io/Rajeshaction:latest
         resources:
           limits:
             memory: "128Mi"
