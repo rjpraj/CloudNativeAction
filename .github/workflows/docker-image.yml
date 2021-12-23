@@ -10,7 +10,7 @@ jobs:
 
   build_push_image:
 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v2
@@ -23,7 +23,7 @@ jobs:
         # Container registry username
         username: cloudnativeacr01
         # Container registry password
-        password: mqQLbr9e0wwHnaEHM/AVaD2uMqvgdmXd 
+        password: ${{ secrets.ACR_CREDENTIALS }} 
         # Container registry server url
         login-server: cloudnativeacr01.azurecr.io
         
