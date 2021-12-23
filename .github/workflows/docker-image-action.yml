@@ -38,7 +38,7 @@ jobs:
     - name: Azure Kubernetes set context
       uses: Azure/k8s-set-context@v1
       with:
-        kubeconfig: ${{secrets.KUBECONFIG}}  
+        kubeconfig: ${{secrets.KUBE_CONFIG}}  
       id: login
         
     - name: Kubernetes Deployment
