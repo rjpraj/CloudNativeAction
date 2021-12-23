@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudnativeaction
+spec:
+  selector:
+    matchLabels:
+      app: cloudnativeaction-pod
+  template:
+    metadata:
+      labels:
+        app: cloudnativeaction-pod
+    spec:
+      containers:
+      - name: myapp
+        image: <Image>
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5000
